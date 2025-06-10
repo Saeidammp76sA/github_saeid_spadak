@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عنوان پست | وبلاگ تیم دیجیتال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --color-dark-brown: #4B352A;
+            --color-terracotta: #CA7842;
+            --color-sage: #B2CD9C;
+            --background-color: #fdfcf7;
+            --card-bg-color: #ffffff;
+            --text-color: #5a4b42;
+            --heading-color: var(--color-dark-brown);
+        }
+        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--background-color); color: var(--text-color); margin: 0; line-height: 1.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .navbar { position: sticky; top: 0; width: 100%; background-color: rgba(253, 252, 247, 0.85); backdrop-filter: blur(15px); box-shadow: 0 5px 25px rgba(75, 53, 42, 0.08); z-index: 1000; padding: 0.5rem 0; }
+        .navbar .container { max-width: 1200px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.6rem; color: var(--heading-color); text-decoration: none;}
+        .nav-links { list-style: none; display: flex; gap: 1rem; padding: 0; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: color 0.3s; padding: 1rem; border-radius: 8px; }
+        .nav-links a:hover { color: var(--color-terracotta); background-color: rgba(202, 120, 66, 0.1); }
+        .post-header { text-align: center; padding: 4rem 1rem; }
+        .post-header .category { color: var(--color-terracotta); font-weight: 700; }
+        .post-header h1 { font-size: 2.8rem; color: var(--heading-color); margin: 0.5rem 0; }
+        .post-meta { font-size: 0.9rem; color: #777; }
+        .post-image { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin: 2rem 0; }
+        .post-content { padding-bottom: 4rem; }
+        .post-content h2 { color: var(--heading-color); margin-top: 2.5rem; }
+        .post-content p { font-size: 1.1rem; }
+        .post-content a { color: var(--color-terracotta); }
+        .post-content blockquote { border-right: 4px solid var(--color-sage); padding-right: 1.5rem; margin: 2rem 0; font-style: italic; }
+        footer { background-color: var(--color-dark-brown); color: white; padding: 4rem 0 2rem 0; text-align: center; }
+        .copyright { border-top: 1px solid #5a4b42; padding-top: 2rem; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">تیم دیجیتال</a>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="portfolio.html">نمونه‌کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="container">
+        <header class="post-header">
+            <p class="category">مدیریت</p>
+            <h1>مدیریت پروژه Agile: راهنمای جامع برای تیم‌های مدرن</h1>
+            <div class="post-meta">
+                <span>نوشته شده توسط <strong>سعید محمدپور</strong></span> |
+                <span><i class="fas fa-calendar-alt"></i> ۱۰ خرداد ۱۴۰۳</span>
+            </div>
+        </header>
+        
+        <img class="post-image" src="https://placehold.co/800x400/CA7842/FFFFFF?text=Agile+Methodology" alt="متدولوژی چابک">
+
+        <div class="post-content">
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+            
+            <h2>چرا Agile اهمیت دارد؟</h2>
+            <p>کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
+
+            <blockquote>این یک نقل قول برای تاکید بر یک نکته مهم است. انعطاف‌پذیری و پاسخ به تغییر، هسته اصلی متدولوژی چابک است.</blockquote>
+
+            <h2>اصول کلیدی Agile</h2>
+            <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="copyright"><p>&copy; ۱۴۰۳ | تمامی حقوق برای تیم دیجیتال محفوظ است.</p></div>
+        </div>
+    </footer>
+</body>
+</html>

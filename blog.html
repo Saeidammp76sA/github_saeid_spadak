@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبلاگ | تیم دیجیتال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --color-dark-brown: #4B352A;
+            --color-terracotta: #CA7842;
+            --color-sage: #B2CD9C;
+            --background-color: #fdfcf7;
+            --card-bg-color: #ffffff;
+            --text-color: #5a4b42;
+            --heading-color: var(--color-dark-brown);
+            --shadow: 0 5px 25px rgba(75, 53, 42, 0.08);
+            --border-radius: 12px;
+        }
+        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--background-color); color: var(--text-color); margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .navbar { position: sticky; top: 0; width: 100%; background-color: rgba(253, 252, 247, 0.85); backdrop-filter: blur(15px); box-shadow: var(--shadow); z-index: 1000; padding: 0.5rem 0; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.6rem; color: var(--heading-color); text-decoration: none;}
+        .nav-links { list-style: none; display: flex; gap: 1rem; padding: 0; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: color 0.3s; padding: 1rem; border-radius: 8px; }
+        .nav-links a:hover { color: var(--color-terracotta); background-color: rgba(202, 120, 66, 0.1); }
+        .page-header { background-color: var(--color-terracotta); color: white; text-align: center; padding: 5rem 1rem; }
+        .page-header h1 { font-size: 3rem; margin: 0; }
+        #blog-layout { padding: 5rem 0; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .post-card { background: var(--card-bg-color); border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
+        .post-card:hover { transform: translateY(-5px); }
+        .post-card-image img { width: 100%; height: 200px; object-fit: cover; }
+        .post-card-content { padding: 1.5rem; }
+        .post-card-content .category { color: var(--color-terracotta); font-size: 0.9rem; font-weight: 700; }
+        .post-card-content h3 { margin: 0.5rem 0; font-size: 1.4rem; }
+        .post-card-content a { text-decoration: none; color: inherit; }
+        .post-card-footer { margin-top: auto; padding: 0 1.5rem 1.5rem 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        footer { background-color: var(--color-dark-brown); color: white; padding: 4rem 0 2rem 0; text-align: center; }
+        .copyright { border-top: 1px solid #5a4b42; padding-top: 2rem; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">تیم دیجیتال</a>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="portfolio.html">نمونه‌کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>وبلاگ ما</h1>
+        <p>دانش و تجربیات خود را با شما به اشتراک می‌گذاریم</p>
+    </header>
+
+    <section id="blog-layout">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="post-card">
+                    <a href="post.html"><div class="post-card-image"><img src="https://placehold.co/400x220/4B352A/FFFFFF?text=Content" alt="پست"></div></a>
+                    <div class="post-card-content">
+                        <p class="category">محتوا</p>
+                        <a href="post.html"><h3>چگونه استراتژی محتوای موفقی بسازیم؟</h3></a>
+                        <p>در این مقاله گام‌به‌گام یاد می‌گیرید که چگونه یک استراتژی محتوای کارآمد برای کسب‌وکارتان تدوین کنید.</p>
+                    </div>
+                    <div class="post-card-footer">
+                        <span><i class="fas fa-calendar-alt"></i> ۲۰ خرداد ۱۴۰۳</span>
+                        <span><i class="fas fa-user"></i> سعید محمدپور</span>
+                    </div>
+                </div>
+                <div class="post-card">
+                    <a href="post.html"><div class="post-card-image"><img src="https://placehold.co/400x220/B2CD9C/4B352A?text=AI" alt="پست"></div></a>
+                    <div class="post-card-content">
+                        <p class="category">تکنولوژی</p>
+                        <a href="post.html"><h3>نقش هوش مصنوعی در آینده دیجیتال مارکتینگ</h3></a>
+                        <p>هوش مصنوعی چگونه در حال تغییر دادن چشم‌انداز بازاریابی دیجیتال است و شما چگونه می‌توانید از آن بهره ببرید.</p>
+                    </div>
+                     <div class="post-card-footer">
+                        <span><i class="fas fa-calendar-alt"></i> ۱۵ خرداد ۱۴۰۳</span>
+                        <span><i class="fas fa-user"></i> تیم محتوا</span>
+                    </div>
+                </div>
+                <div class="post-card">
+                   <a href="post.html"> <div class="post-card-image"><img src="https://placehold.co/400x220/CA7842/FFFFFF?text=Agile" alt="پست"></div></a>
+                    <div class="post-card-content">
+                        <p class="category">مدیریت</p>
+                        <a href="post.html"><h3>مدیریت پروژه Agile: راهنمای جامع</h3></a>
+                        <p>با متدولوژی چابک (Agile) آشنا شوید و یاد بگیرید چگونه پروژه‌های خود را سریع‌تر و با کیفیت‌تر به نتیجه برسانید.</p>
+                    </div>
+                     <div class="post-card-footer">
+                        <span><i class="fas fa-calendar-alt"></i> ۱۰ خرداد ۱۴۰۳</span>
+                        <span><i class="fas fa-user"></i> سعید محمدپور</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright"><p>&copy; 1404 | تمامی حقوق برای تیم دیجیتال محفوظ است.</p></div>
+        </div>
+    </footer>
+</body>
+</html>

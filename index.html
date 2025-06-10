@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سعید محمدپور و تیم | راهکارهای جامع دیجیتال</title>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Chart.js for skill chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* * Palette:
+         * --color-dark-brown: #4B352A;   (Headings, Dark Backgrounds)
+         * --color-terracotta: #CA7842;   (Primary Accent, Buttons, Links)
+         * --color-sage: #B2CD9C;         (Secondary Accent, Cards, Highlights)
+         * --color-cream: #F0F2BD;        (Light Background Accents)
+        */
+        :root {
+            --color-dark-brown: #4B352A;
+            --color-terracotta: #CA7842;
+            --color-sage: #B2CD9C;
+            --color-cream: #F0F2BD;
+            
+            --background-color: #fdfcf7;
+            --card-bg-color: #ffffff;
+            --text-color: #5a4b42;
+            --heading-color: var(--color-dark-brown);
+            --white-color: #fff;
+
+            --shadow: 0 5px 25px rgba(75, 53, 42, 0.08);
+            --shadow-hover: 0 10px 35px rgba(75, 53, 42, 0.12);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        /* --- Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: rgba(253, 252, 247, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--heading-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .nav-links a:hover, .nav-links .dropdown:hover .drop-btn {
+            color: var(--color-terracotta);
+            background-color: rgba(202, 120, 66, 0.1);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--white-color);
+            min-width: 200px;
+            box-shadow: var(--shadow-hover);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            animation: slide-down 0.3s ease-out;
+        }
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 1rem;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(202, 120, 66, 0.1);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* --- Hero Section --- */
+        #hero {
+            padding: 4rem 0;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+        #hero .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            gap: 3rem;
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+        .hero-text h1 .highlight {
+            color: var(--color-terracotta);
+        }
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+        }
+        .hero-image {
+            position: relative;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 50%;
+            border: 10px solid var(--white-color);
+            box-shadow: var(--shadow-hover);
+        }
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-sage);
+            top: -20px;
+            right: -20px;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            background: var(--color-terracotta);
+            color: var(--white-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(202, 120, 66, 0.4);
+        }
+
+        /* --- Skills Section with Chart --- */
+        #skills .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        #skills .skill-chart-container {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--card-bg-color);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-terracotta);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--color-terracotta);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Portfolio Teaser Section --- */
+        #portfolio {
+            background-color: #f7f3ef;
+        }
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .card-item {
+            background-color: var(--card-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card-item-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-item-content {
+            padding: 1.5rem;
+        }
+        .card-item-content h3 {
+            font-size: 1.3rem;
+        }
+        .view-all-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        .pricing-card {
+            background: var(--card-bg-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--color-terracotta);
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-terracotta);
+        }
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            color: var(--heading-color);
+        }
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: right;
+        }
+        .pricing-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pricing-card ul li i {
+            margin-left: 0.5rem;
+            color: var(--color-sage);
+        }
+
+        /* --- Blog Teaser Section --- */
+        #blog {
+            background-color: #f7f3ef;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-dark-brown);
+            color: var(--white-color);
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: right;
+        }
+        .footer-content h4 {
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-content ul {
+            list-style: none;
+        }
+        .footer-content ul li a {
+            color: #ccc;
+            text-decoration: none;
+            padding: 0.3rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+        .footer-content ul li a:hover {
+            color: var(--color-terracotta);
+        }
+        .social-links a {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin: 0 0.7rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--color-terracotta);
+        }
+        .copyright {
+            border-top: 1px solid #5a4b42;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================= NAVBAR ======================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">تیم دیجیتال</a>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li class="dropdown">
+                    <a href="#" class="drop-btn">خدمات ما <i class="fas fa-chevron-down fa-xs"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#services">برنامه‌نویسی و وب</a>
+                        <a href="#services">تولید محتوا</a>
+                        <a href="#services">دیجیتال مارکتینگ</a>
+                    </div>
+                </li>
+                <li><a href="portfolio.html">نمونه‌کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+                <li><a href="#pricing">تعرفه‌ها</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======================= HERO ======================= -->
+    <header id="hero">
+        <div class="container">
+            <div class="hero-text fade-in">
+                <h1>مدیریت، خلاقیت و تکنولوژی <br> برای <span class="highlight">رشد کسب‌وکار شما</span></h1>
+                <p class="subtitle">
+                    توسط سعید محمدپور و تیمی از متخصصان، ما راهکارهای یکپارچه در حوزه برنامه‌نویسی، تولید محتوای خلاق و استراتژی‌های دیجیتال مارکتینگ ارائه می‌دهیم.
+                </p>
+                <a href="portfolio.html" class="cta-button">مشاهده نمونه‌کارها</a>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="https://placehold.co/400x400/CA7842/4B352A?text=Team" alt="تیم دیجیتال">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======================= SKILLS ======================= -->
+        <section id="skills">
+            <div class="container">
+                <div class="skills-text fade-in">
+                    <div class="section-header" style="text-align: right;">
+                        <h2 style="text-align: right;">تخصص ما، موفقیت شما</h2>
+                        <p>ما با ترکیب مهارت‌های فنی و خلاقیت، بهترین نتایج را برای مشتریان خود رقم می‌زنیم. تمرکز ما بر حوزه‌های زیر است:</p>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--color-terracotta);"></i> توسعه وب و اپلیکیشن‌های سفارشی</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--color-terracotta);"></i> استراتژی و تولید محتوای دیجیتال</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--color-terracotta);"></i> سئو و بازاریابی مبتنی بر داده</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--color-terracotta);"></i> مدیریت پروژه و تیم‌های نرم‌افزاری</li>
+                    </ul>
+                </div>
+                <div class="skill-chart-container fade-in">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= SERVICES ======================= -->
+        <section id="services" style="background-color: #f7f3ef;">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>خدمات یکپارچه ما</h2>
+                    <p>از ایده تا اجرا، در تمام مراحل رشد دیجیتال کسب‌وکار شما همراهتان هستیم.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-laptop-code service-icon"></i>
+                        <h3>برنامه‌نویسی و توسعه وب</h3>
+                        <p>طراحی و توسعه وب‌سایت‌های مدرن، پلتفرم‌های سازمانی و اپلیکیشن‌های موبایل با جدیدترین تکنولوژی‌ها.</p>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                        <i class="fas fa-pen-ruler service-icon"></i>
+                        <h3>تولید محتوای خلاق</h3>
+                        <p>تولید محتوای متنی، تصویری و ویدیویی جذاب برای وب‌سایت، شبکه‌های اجتماعی و کمپین‌های تبلیغاتی شما.</p>
+                    </div>
+                    <div class="service-card fade-in" style="transition-delay: 0.2s;">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>دیجیتال مارکتینگ</h3>
+                        <p>بهینه‌سازی برای موتورهای جستجو (SEO)، مدیریت شبکه‌های اجتماعی و اجرای کمپین‌های تبلیغاتی هدفمند.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= PORTFOLIO TEASER ======================= -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>گوشه‌ای از افتخارات ما</h2>
+                    <p>نگاهی به پروژه‌های موفقی که با همکاری مشتریان ارزشمندمان به سرانجام رسانده‌ایم.</p>
+                </div>
+                <div class="item-grid">
+                    <!-- Project 1 -->
+                    <div class="card-item fade-in">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/B2CD9C/4B352A?text=Project+1" alt="پروژه اول">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>پلتفرم آموزش آنلاین</h3>
+                            <p>دسته‌بندی: توسعه وب</p>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="card-item fade-in" style="transition-delay: 0.1s;">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/CA7842/FFFFFF?text=Project+2" alt="پروژه دوم">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>کمپین معرفی محصول</h3>
+                            <p>دسته‌بندی: دیجیتال مارکتینگ</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="card-item fade-in" style="transition-delay: 0.2s;">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/F0F2BD/4B352A?text=Project+3" alt="پروژه سوم">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>ریبرندینگ و هویت بصری</h3>
+                            <p>دسته‌بندی: تولید محتوا</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-btn fade-in">
+                    <a href="portfolio.html" class="cta-button">مشاهده همه نمونه‌کارها</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======================= PRICING ======================= -->
+        <section id="pricing">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>پلن‌های همکاری</h2>
+                    <p>راهکارهای شفاف و منعطف برای نیازهای متفاوت کسب‌وکار شما.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card fade-in">
+                        <h3>پلن استاندارد</h3>
+                        <p>برای کسب‌وکارهای نوپا</p>
+                        <div class="price">تماس بگیرید</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i>طراحی وب‌سایت پایه</li>
+                            <li><i class="fas fa-check"></i>مدیریت ۲ شبکه اجتماعی</li>
+                            <li><i class="fas fa-check"></i>گزارش ماهانه عملکرد</li>
+                            <li><i class="fas fa-times"></i>کمپین تبلیغاتی</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="background: var(--color-sage);">شروع کنید</a>
+                    </div>
+                    <div class="pricing-card featured fade-in" style="transition-delay: 0.1s;">
+                        <h3>پلن تجاری</h3>
+                        <p>برای کسب‌وکارهای در حال رشد</p>
+                        <div class="price">تماس بگیرید</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i>توسعه وب‌سایت پیشرفته</li>
+                            <li><i class="fas fa-check"></i>مدیریت ۴ شبکه اجتماعی</li>
+                            <li><i class="fas fa-check"></i>استراتژی محتوا و سئو</li>
+                            <li><i class="fas fa-check"></i>یک کمپین تبلیغاتی در ماه</li>
+                        </ul>
+                        <a href="#" class="cta-button">محبوب‌ترین</a>
+                    </div>
+                    <div class="pricing-card fade-in" style="transition-delay: 0.2s;">
+                        <h3>پلن سازمانی</h3>
+                        <p>راهکار جامع و سفارشی</p>
+                        <div class="price">تماس بگیرید</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i>توسعه پلتفرم اختصاصی</li>
+                            <li><i class="fas fa-check"></i>مدیریت جامع دیجیتال مارکتینگ</li>
+                            <li><i class="fas fa-check"></i>تحلیل داده و گزارش‌های مدیریتی</li>
+                            <li><i class="fas fa-check"></i>کمپین‌های متعدد و هدفمند</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="background: var(--color-sage);">مشاوره اختصاصی</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= BLOG TEASER ======================= -->
+        <section id="blog">
+             <div class="container">
+                <div class="section-header fade-in">
+                    <h2>آخرین مقالات و دیدگاه‌ها</h2>
+                    <p>دانش و تجربه خود را در زمینه تکنولوژی، مدیریت و بازاریابی با شما به اشتراک می‌گذاریم.</p>
+                </div>
+                <div class="item-grid">
+                    <!-- Post 1 -->
+                    <div class="card-item fade-in">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/4B352A/FFFFFF?text=Blog+1" alt="پست وبلاگ">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>چگونه استراتژی محتوای موفقی بسازیم؟</h3>
+                            <a href="post.html" style="color: var(--color-terracotta); text-decoration: none; margin-top: 1rem;">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                     <!-- Post 2 -->
+                    <div class="card-item fade-in" style="transition-delay: 0.1s;">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/B2CD9C/4B352A?text=Blog+2" alt="پست وبلاگ">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>نقش هوش مصنوعی در آینده دیجیتال مارکتینگ</h3>
+                             <a href="post.html" style="color: var(--color-terracotta); text-decoration: none; margin-top: 1rem;">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                     <!-- Post 3 -->
+                    <div class="card-item fade-in" style="transition-delay: 0.2s;">
+                        <div class="card-item-image">
+                            <img src="https://placehold.co/400x220/CA7842/FFFFFF?text=Blog+3" alt="پست وبلاگ">
+                        </div>
+                        <div class="card-item-content">
+                            <h3>مدیریت پروژه Agile: راهنمای جامع</h3>
+                           <a href="post.html" style="color: var(--color-terracotta); text-decoration: none; margin-top: 1rem;">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-btn fade-in">
+                    <a href="blog.html" class="cta-button">مشاهده همه مقالات</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>درباره تیم دیجیتال</h4>
+                    <p>ما با هدایت سعید محمدپور، به کسب‌وکارها کمک می‌کنیم تا با استفاده از راهکارهای خلاقانه و فناورانه، در دنیای دیجیتال بدرخشند.</p>
+                    <div class="social-links">
+                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="index.html">خانه</a></li>
+                        <li><a href="portfolio.html">نمونه‌کارها</a></li>
+                        <li><a href="blog.html">وبلاگ</a></li>
+                        <li><a href="#pricing">تعرفه‌ها</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-contact">
+                    <h4>تماس با ما</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> آدرس شرکت شما</li>
+                        <li><i class="fas fa-phone"></i> ۰۲۱-۱۲۳۴۵۶۷۸</li>
+                        <li><i class="fas fa-envelope"></i> info@yourcompany.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; ۱۴۰۳ | تمامی حقوق برای تیم دیجیتال محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Animate elements on scroll ---
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Skills Chart ---
+            const ctx = document.getElementById('skillsChart');
+            if(ctx) {
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'مدیریت پروژه',
+                            'توسعه بک‌اند',
+                            'دیجیتال مارکتینگ',
+                            'استراتژی محتوا',
+                            'طراحی UI/UX',
+                            'تحلیل داده'
+                        ],
+                        datasets: [{
+                            label: 'سطح تخصص',
+                            data: [90, 85, 95, 88, 75, 80],
+                            backgroundColor: 'rgba(202, 120, 66, 0.2)',
+                            borderColor: 'rgba(202, 120, 66, 1)',
+                            pointBackgroundColor: 'rgba(202, 120, 66, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(202, 120, 66, 1)'
+                        }]
+                    },
+                    options: {
+                        scale: {
+                            ticks: { beginAtZero: true, max: 100 }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

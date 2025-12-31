@@ -3,109 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وبلاگ | تیم دیجیتال</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="author" content="saeid-spadak">
+    <meta name="description" content="وبلاگ تخصصی اسپاداک - جدیدترین مقالات در حوزه تکنولوژی، برنامه‌نویسی، هوش مصنوعی و دیجیتال مارکتینگ.">
+    <title>وبلاگ تخصصی | اسپاداک</title>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
+        /* * Creator: saeid-spadak
+         * Theme: Spadak Earth Tones (Consistent with index.html)
+         */
         :root {
             --color-dark-brown: #4B352A;
             --color-terracotta: #CA7842;
+            --color-terracotta-dark: #a65e2e;
             --color-sage: #B2CD9C;
-            --background-color: #fdfcf7;
-            --card-bg-color: #ffffff;
-            --text-color: #5a4b42;
-            --heading-color: var(--color-dark-brown);
-            --shadow: 0 5px 25px rgba(75, 53, 42, 0.08);
-            --border-radius: 12px;
+            --color-cream: #F0F2BD;
+            --color-light-bg: #f9f7f2;
+            
+            --text-main: #5a4b42;
+            --text-light: #8c7b70;
+            --white: #ffffff;
+
+            --shadow-sm: 0 5px 15px rgba(75, 53, 42, 0.05);
+            --shadow-md: 0 10px 30px rgba(75, 53, 42, 0.08);
+            --shadow-lg: 0 20px 50px rgba(75, 53, 42, 0.12);
+            
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--background-color); color: var(--text-color); margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .navbar { position: sticky; top: 0; width: 100%; background-color: rgba(253, 252, 247, 0.85); backdrop-filter: blur(15px); box-shadow: var(--shadow); z-index: 1000; padding: 0.5rem 0; }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.6rem; color: var(--heading-color); text-decoration: none;}
-        .nav-links { list-style: none; display: flex; gap: 1rem; padding: 0; }
-        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: color 0.3s; padding: 1rem; border-radius: 8px; }
-        .nav-links a:hover { color: var(--color-terracotta); background-color: rgba(202, 120, 66, 0.1); }
-        .page-header { background-color: var(--color-terracotta); color: white; text-align: center; padding: 5rem 1rem; }
-        .page-header h1 { font-size: 3rem; margin: 0; }
-        #blog-layout { padding: 5rem 0; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .post-card { background: var(--card-bg-color); border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease; }
-        .post-card:hover { transform: translateY(-5px); }
-        .post-card-image img { width: 100%; height: 200px; object-fit: cover; }
-        .post-card-content { padding: 1.5rem; }
-        .post-card-content .category { color: var(--color-terracotta); font-size: 0.9rem; font-weight: 700; }
-        .post-card-content h3 { margin: 0.5rem 0; font-size: 1.4rem; }
-        .post-card-content a { text-decoration: none; color: inherit; }
-        .post-card-footer { margin-top: auto; padding: 0 1.5rem 1.5rem 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        footer { background-color: var(--color-dark-brown); color: white; padding: 4rem 0 2rem 0; text-align: center; }
-        .copyright { border-top: 1px solid #5a4b42; padding-top: 2rem; margin-top: 2rem; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--color-light-bg); color: var(--text-main); line-height: 1.8; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        
+        /* Navbar (Consistent) */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(253, 252, 247, 0.9); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--color-dark-brown); display: flex; align-items: center; gap: 0.5rem; }
+        .logo i { color: var(--color-terracotta); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 1rem; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; right: 0; width: 0; height: 2px; background: var(--color-terracotta); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Page Header */
+        .page-header { 
+            background: radial-gradient(circle at 10% 20%, rgba(178, 205, 156, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(202, 120, 66, 0.1) 0%, transparent 40%);
+            text-align: center; 
+            padding: 10rem 0 5rem; 
+        }
+        .page-header h1 { font-size: 3rem; color: var(--color-dark-brown); font-weight: 900; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; color: var(--text-light); }
+
+        /* Blog Layout */
+        #blog-layout { padding: 4rem 0; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        
+        .post-card { 
+            background: var(--white); 
+            border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow-sm); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            transition: var(--transition); 
+            border-top: 4px solid transparent;
+        }
+        .post-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--shadow-lg); 
+            border-top-color: var(--color-terracotta);
+        }
+        
+        .post-card-image { overflow: hidden; height: 220px; position: relative; }
+        .post-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .post-card:hover .post-card-image img { transform: scale(1.1); }
+        
+        .post-card-content { padding: 1.5rem; flex-grow: 1; }
+        .category { color: var(--color-terracotta); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
+        .post-card-content h3 { font-size: 1.4rem; margin-bottom: 1rem; line-height: 1.4; color: var(--color-dark-brown); }
+        .post-card-content p { color: #666; font-size: 0.95rem; line-height: 1.7; }
+        
+        .post-card-footer { 
+            padding: 1rem 1.5rem; 
+            background: #fafafa; 
+            border-top: 1px solid #eee; 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 0.85rem; 
+            color: #888; 
+        }
+        .post-card-footer i { margin-left: 5px; color: var(--color-sage); }
+
+        /* Footer (Consistent) */
+        footer { background: var(--color-dark-brown); color: rgba(255,255,255,0.7); padding: 4rem 0 1rem; text-align: center; margin-top: 4rem; }
+        .footer-logo { color: var(--white); font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; display: block; }
+        .copyright { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0; }
+        .social-links a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); transition: var(--transition); }
+        .social-links a:hover { background: var(--color-terracotta); transform: translateY(-5px); }
+
+        /* Mobile */
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) {
+             .nav-links { display: none; }
+             .mobile-toggle { display: block; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">تیم دیجیتال</a>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-layer-group"></i>
+                SPADAK
+            </a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-links">
                 <li><a href="index.html">خانه</a></li>
-                <li><a href="portfolio.html">نمونه‌کارها</a></li>
-                <li><a href="blog.html">وبلاگ</a></li>
+                <li><a href="index.html#about">درباره ما</a></li>
+                <li><a href="index.html#services">خدمات</a></li>
+                <li><a href="index.html#portfolio">نمونه‌کارها</a></li>
+                <li><a href="blog.html" style="color: var(--color-terracotta);">وبلاگ</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- HEADER -->
     <header class="page-header">
-        <h1>وبلاگ ما</h1>
-        <p>دانش و تجربیات خود را با شما به اشتراک می‌گذاریم</p>
+        <div class="container">
+            <h1>وبلاگ اسپاداک</h1>
+            <p>اشتراک دانش و تجربه در دنیای دیجیتال</p>
+        </div>
     </header>
 
+    <!-- BLOG POSTS -->
     <section id="blog-layout">
         <div class="container">
             <div class="blog-grid">
+                
+                <!-- Post 1 -->
                 <div class="post-card">
-                    <a href="post.html"><div class="post-card-image"><img src="https://placehold.co/400x220/4B352A/FFFFFF?text=Content" alt="پست"></div></a>
+                    <a href="post.html">
+                        <div class="post-card-image">
+                            <img src="https://placehold.co/400x250/4B352A/FFFFFF?text=Content+Strategy" alt="استراتژی محتوا">
+                        </div>
+                    </a>
                     <div class="post-card-content">
-                        <p class="category">محتوا</p>
+                        <span class="category">محتوا و مارکتینگ</span>
                         <a href="post.html"><h3>چگونه استراتژی محتوای موفقی بسازیم؟</h3></a>
-                        <p>در این مقاله گام‌به‌گام یاد می‌گیرید که چگونه یک استراتژی محتوای کارآمد برای کسب‌وکارتان تدوین کنید.</p>
+                        <p>در این مقاله گام‌به‌گام یاد می‌گیرید که چگونه یک استراتژی محتوای کارآمد برای رشد ارگانیک کسب‌وکارتان تدوین کنید.</p>
                     </div>
                     <div class="post-card-footer">
                         <span><i class="fas fa-calendar-alt"></i> ۲۰ خرداد ۱۴۰۳</span>
                         <span><i class="fas fa-user"></i> سعید محمدپور</span>
                     </div>
                 </div>
+
+                <!-- Post 2 -->
                 <div class="post-card">
-                    <a href="post.html"><div class="post-card-image"><img src="https://placehold.co/400x220/B2CD9C/4B352A?text=AI" alt="پست"></div></a>
+                    <a href="post.html">
+                        <div class="post-card-image">
+                            <img src="https://placehold.co/400x250/B2CD9C/4B352A?text=AI+Future" alt="هوش مصنوعی">
+                        </div>
+                    </a>
                     <div class="post-card-content">
-                        <p class="category">تکنولوژی</p>
+                        <span class="category">تکنولوژی و AI</span>
                         <a href="post.html"><h3>نقش هوش مصنوعی در آینده دیجیتال مارکتینگ</h3></a>
-                        <p>هوش مصنوعی چگونه در حال تغییر دادن چشم‌انداز بازاریابی دیجیتال است و شما چگونه می‌توانید از آن بهره ببرید.</p>
+                        <p>هوش مصنوعی چگونه در حال تغییر دادن چشم‌انداز بازاریابی دیجیتال است و ابزارهای جدید چه کمکی به ما می‌کنند.</p>
                     </div>
-                     <div class="post-card-footer">
+                    <div class="post-card-footer">
                         <span><i class="fas fa-calendar-alt"></i> ۱۵ خرداد ۱۴۰۳</span>
-                        <span><i class="fas fa-user"></i> تیم محتوا</span>
+                        <span><i class="fas fa-user"></i> تیم فنی اسپاداک</span>
                     </div>
                 </div>
+
+                <!-- Post 3 -->
                 <div class="post-card">
-                   <a href="post.html"> <div class="post-card-image"><img src="https://placehold.co/400x220/CA7842/FFFFFF?text=Agile" alt="پست"></div></a>
+                    <a href="post.html">
+                        <div class="post-card-image">
+                            <img src="https://placehold.co/400x250/CA7842/FFFFFF?text=Agile+Management" alt="مدیریت چابک">
+                        </div>
+                    </a>
                     <div class="post-card-content">
-                        <p class="category">مدیریت</p>
+                        <span class="category">مدیریت پروژه</span>
                         <a href="post.html"><h3>مدیریت پروژه Agile: راهنمای جامع</h3></a>
-                        <p>با متدولوژی چابک (Agile) آشنا شوید و یاد بگیرید چگونه پروژه‌های خود را سریع‌تر و با کیفیت‌تر به نتیجه برسانید.</p>
+                        <p>با متدولوژی چابک (Agile) آشنا شوید و یاد بگیرید چگونه پروژه‌های نرم‌افزاری خود را سریع‌تر و با کیفیت‌تر به نتیجه برسانید.</p>
                     </div>
-                     <div class="post-card-footer">
+                    <div class="post-card-footer">
                         <span><i class="fas fa-calendar-alt"></i> ۱۰ خرداد ۱۴۰۳</span>
                         <span><i class="fas fa-user"></i> سعید محمدپور</span>
                     </div>
                 </div>
+                
+                 <!-- Post 4 (New) -->
+                <div class="post-card">
+                    <a href="post.html">
+                        <div class="post-card-image">
+                            <img src="https://placehold.co/400x250/F0F2BD/4B352A?text=SEO+Tips" alt="سئو">
+                        </div>
+                    </a>
+                    <div class="post-card-content">
+                        <span class="category">سئو و بهینه‌سازی</span>
+                        <a href="post.html"><h3>۵ تکنیک طلایی سئو در سال ۲۰۲۵</h3></a>
+                        <p>بررسی جدیدترین الگوریتم‌های گوگل و روش‌های بهبود رتبه سایت در نتایج جستجو با تمرکز بر تجربه کاربری.</p>
+                    </div>
+                    <div class="post-card-footer">
+                        <span><i class="fas fa-calendar-alt"></i> ۵ خرداد ۱۴۰۳</span>
+                        <span><i class="fas fa-user"></i> تیم سئو</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="copyright"><p>&copy; 1404 | تمامی حقوق برای تیم دیجیتال محفوظ است.</p></div>
+            <a href="index.html" class="footer-logo">SPADAK</a>
+            <p>شرکت سما پردازشگران آداک | پیشرو در خدمات دیجیتال</p>
+            
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; ۲۰۲۵ تمامی حقوق برای <strong>سما پردازشگران آداک</strong> محفوظ است.</p>
+                <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 5px; direction: ltr;">Created by saeid-spadak</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile Toggle Logic
+        const toggle = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '60px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = '#fff';
+                nav.style.padding = '2rem';
+                nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
